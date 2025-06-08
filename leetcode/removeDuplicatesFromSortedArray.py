@@ -1,22 +1,25 @@
-from typing import List
+class Solution:
+    def removeDuplicates(self, nums: List[int]) -> int:
 
 class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         noDupes = set()
         size = len(nums)
-        l = 0 
-        arr = []
+        l = 0
+
         while l < size:
             noDupes.add(nums[l])
             l += 1
 
-        
+        arr = sorted(noDupes)
+        k = len(arr)
 
-    
-solution = Solution()
-nums = [1,1,2]
-solution.removeDuplicates(nums)    
+        # Overwrite the first k elements of nums with unique sorted values
+        # Overwrite nums itself A.K.A (in place)
+        for i in range(k):
+            nums[i] = arr[i]
 
+        return k
 # Example 1:
 
 # Input: nums = [1,1,2]
